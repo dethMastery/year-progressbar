@@ -1,21 +1,38 @@
 <script>
 	import { page } from '$app/stores';
+
+	const navButton = `p-4 hover:opacity-60`
+	const activeButton = `p-4 opacity-80 hover:opacity-80`
 </script>
 
 <header>
-	<!-- <nav>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
-		</ul>
-	</nav> -->
+	<nav class="w-full fixed top-0 flex flex-row my-4">
+		<div class="w-full justify-start text-left">
+			{#if $page.url.pathname === '/'}
+				<!-- svelte-ignore a11y-invalid-attribute -->
+				<a href="#" class={activeButton}>
+					Home
+				</a>
+			{:else}
+				<a href="/" class={navButton}>
+					Home
+				</a>
+			{/if}
+			
+		</div>
+		<div class="w-full justify-end text-right">
+			{#if $page.url.pathname === '/about'}
+				<!-- svelte-ignore a11y-invalid-attribute -->
+				<a href="#" class={activeButton}>
+					About
+				</a>
+			{:else}
+				<a href="/about" class={navButton}>
+					About
+				</a>
+			{/if}
+		</div>
+	</nav>
 </header>
 
 <style>
