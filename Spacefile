@@ -5,3 +5,6 @@ micros:
     src: ./
     engine: svelte-kit
     primary: true
+    public_routes:
+      - "/"
+      - "/*"
